@@ -507,9 +507,7 @@ final class FieldSet<T extends FieldSet.FieldDescriptorLite<T>> {
   private static Object cloneIfMutable(Object value) {
     if (value instanceof byte[]) {
       byte[] bytes = (byte[]) value;
-      byte[] copy = new byte[bytes.length];
-      System.arraycopy(bytes, 0, copy, 0, bytes.length);
-      return copy;
+      return bytes.clone();
     } else {
       return value;
     }
